@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Checkout example for Bootstrap</title>
+    <script>
+     
+    </script>
+
+    <!--Bootstrap core CSS-->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    
+
+    <!--Custom styles for this template-->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+
+  <body >
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Formulario de Envío</h2>
+        <p class="lead">
+          A continuación se muestra un ejemplo de formulario creado completamente con controles de formulario de Bootstrap.
+          Cada grupo de formulario requerido tiene un estado de validación que se puede activar al intentar enviar el formulario
+          sin completarlo.
+
+        </p>
+      </div>
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Datos a Completar</h4>
+          <form  name="forms" onsubmit="return comprobar()" >
+            
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="nombre" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Apellido</label>
+                <input type="text" class="form-control" id="apellido" required>
+              </div>
+            <div class="col-md-6 mb-3">
+                <label for="">Sexo</label><br />
+                <select name="" id="sexo">
+                    <option value="femenino">Femenino</option>
+                    <option value="masculio">Masculino</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="username">Telefono</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  
+                </div>
+                <input type="text" class="form-control" id="telefono"  required>
+                
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Email <span class="text-muted"></span></label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
+              
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-block" class="form-control" type="submit" onclick="validarEmail();enviarDatos()">Enviar Datos</button>
+
+          </form> 
+          <p id="aviso"></p>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+  <script src="./validar.js">
+    
+  </script>
+  </body>
+</html>
