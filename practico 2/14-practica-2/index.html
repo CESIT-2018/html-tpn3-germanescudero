@@ -1,0 +1,57 @@
+<!--
+  Hacer un sitio web HTML, CSS, JS que contenga las siguientes páginas
+   - Inicio -> Página inicial con mensaje de bienvenida, se debe incluir algún con JS que cambie el texto o muestre un alert
+   - Perfil -> Una página donde se describa características del alumno
+   - Servicios -> Inventar un listado de servicos que ofrese
+   - Productos -> Inventar productos que se ofrecen
+
+   * En cada página debe haber un menú en el cual puedo ir a cualquier otra página
+   * Organizar el código dividiendo estilos, páginas y js en carpetas separadas
+ -->
+<html>
+  <head>
+    <title>
+      Inicio
+    </title>
+    <script>
+    alert("Bienvenidos");
+    </script>
+    <style>
+    a:hover{
+      font-size:20px;
+      color:#100;
+    }</style>
+  </head>
+  <body bgcolor="grey">
+    <div id="inicio" style="text-align: center;">Pagina de Inicio</div>
+    <script type="text/javascript" >
+      
+      document.getElementById("inicio").style.color = "blue";
+      document.getElementById("inicio").style.fontSize=60;
+      document.getElementById("inicio").style.background="black";
+      
+     </script>
+     <h1><div id="menu">Menu</div>
+      <script type="text/javascript">
+      document.getElementById("menu").style.color="red";
+      document.getElementById("menu").style.background="black";</script>
+    </h1>
+
+     <a href="file:///C:/Users/daniel/Documents/GitHub/programacion-3/01_html_intro/14-practica-2/perfil/perfil.html" >-
+       Perfil</a>
+     <br>
+     <a href="file:///C:/Users/daniel/Documents/GitHub/programacion-3/01_html_intro/14-practica-2/servicio/servicio.html">- Servicio</a>
+     <br>
+     <a href="file:///C:/Users/daniel/Documents/GitHub/programacion-3/01_html_intro/14-practica-2/producto/producto.html">- Producto</a>
+     <br><br>
+     <table border="0" align="right" bgcolor="white" >
+       <th bgcolor="silver"><img src="contacto.ico"align="left" width="30%" height="30%" > Contactos<br><br><br><br><br><br>
+      <img src="configure.ico" align="left" width="30%" height="30%" > Configuración
+      </th>
+        <th width="80%" height="420%">
+         <img src="121.jpg" align="right" width="80%" height="320%">
+        </th> 
+       
+     </table>
+    </body>
+</html>

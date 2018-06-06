@@ -1,0 +1,89 @@
+<!--
+
+  Crear una web html, css y javascript.
+  Debe agrear los estilos y javascript en archivos separados.
+
+  1. Crear una web html
+  2. Agregar título "Listado de alumnos"
+  3. Crear una tabla con un listado de 4 alumnos (nombre, apellido, email)
+  4. Colorear el título utilizando css
+  5. Agregar estilo al header de la tabla utilizando javascript
+  6. Mostrar un mensaje de bienvenidos cuando cargue la página -> con js
+  
+ -->
+<html>
+  <head>
+      <meta charset="utf-8">
+    <title>
+      Listado de alumnos
+    </title>
+    
+    <style media="screen">
+     #titulo{
+       color: crimson;
+        background-color:rgb(176, 170, 212);
+        font-size: 550%
+        }
+        #tabla{
+          
+        background-color:rgb(151, 14, 25);
+        font-size: 400%
+        }
+        
+
+     
+    </style>
+    <link rel="stylesheet" shref="styles.css">
+  </head>
+  <body background="imagen1.jpg">
+  
+   <div id="titulo" style="text-align: center;">Listado de Alumnos</div><br/>
+    <table id="tabla" border="4" style="margin: 0 auto">
+      <thead>
+        <th>
+           <div id="nombre">Nombre</div>
+           <script type="text/javascript" >
+            document.getElementById("nombre").style.color = "blue";
+            </script>
+        </th>
+        <th>
+            <div id="apellido">Apellido</div>
+            <script  type="text/javascript" >
+              document.getElementById("apellido").style.color = "blue";
+              </script>
+        </th>
+        <th>
+            <div id="dni">Email</div>
+            <script  type="text/javascript" >
+              document.getElementById("dni").style.color = "blue";
+              </script>
+        </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>daniel</td>
+          <td>escudero</td>
+          <td>daniel@gmail.com</td>
+        </tr>
+        <tr>
+          <td>sonia</td>
+          <td>trejo</td>
+          <td>sonia@gmail.com</td>
+        </tr>
+        <tr>
+          <td>javier</td>
+          <td>savietto</td>
+          <td>javier@gmail.com</td>
+        </tr>
+        <tr>
+          <td>araceli</td>
+          <td>figuero</td>
+          <td>araceli@gmail.com</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="./script.js" type="text/javascript" >
+    document.getElementById("titulo").style.color = "blue";
+    </script>
+  </body>
+</html>
