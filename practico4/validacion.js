@@ -29,12 +29,17 @@ alert("CAMPOS CORRECTAMENTE SUMINISTRADOS ");
 return true;
 }
 
-function limpiarLabel(){
-document.getElementById("label").innerHTML = "";
-document.getElementById("label2").innerHTML = "";
-document.getElementById("label3").innerHTML = "";
-document.getElementById("label4").innerHTML = "";
-
+function limpiarLabel() {
+    document.getElementById("label").innerHTML = "";
+}
+function limpiarLabel2() {
+    document.getElementById("label2").innerHTML = "";
+}
+function limpiarLabel3() {
+    document.getElementById("label3").innerHTML = "";
+}
+function limpiarLabel4() {
+    document.getElementById("label4").innerHTML = "";
 }
 
 function iniciarLabel(){
@@ -44,11 +49,12 @@ function iniciarLabel(){
     document.getElementById("label4").innerHTML = "* Campo Obligatorio";
     
     }
-
-function validacionEmail(valor) {
-   // var valor = document.getElementById("email").value;
+    
+   
+function validacionEmail() {
+    let valor=document.getElementById("email").value;
     if (!(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(valor))) {
-        document.getElementById("label4").innerHTML="Email Incorrecto";
+        document.getElementById("label4").innerHTML="* Email Incorrecto";
         return false;
     }
     

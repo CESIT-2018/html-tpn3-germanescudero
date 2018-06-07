@@ -60,24 +60,24 @@
         </p>
         <p>
             <label for="">Apellido:</label>
-            <input type="text" id="apellido" class="form-inline"  onfocus="limpiarLabel()"/>
+            <input type="text" id="apellido" class="form-inline"  onfocus="limpiarLabel2()"/>
             <label for="" id="label2">* Campo Obligatorio</label>
         </p>
         <p>
             <label for="">Telefono:</label>
-            <input type="text" id="telefono"class="form-inline" onfocus="limpiarLabel()"  />
+            <input type="text" id="telefono"class="form-inline" onfocus="limpiarLabel3()"  />
             <label for="" id="label3">* Campo Obligatorio</label>
         </p>
         <p>
             <div class="mb-3">
             <label for="">Email     :</label>
-            <input type="email" name="email" class="form-control" onfocus="limpiarLabel()" id="email" placeholder="nombre@ejemplo.com"/>
+            <input type="email" name="email" class="form-control" onfocus="limpiarLabel4()" id="email" placeholder="nombre@ejemplo.com"/>
             <label for="" id="label4">* Campo Obligatorio</label>
             </div>
         </p>
 
         <p>
-            <button onclick="validacionEmail(form.email.value)" class="btn btn-primary btn-lg btn-block">Enviar</button> 
+            <input type="submit" onclick="return validacionEmail();" class="btn btn-primary btn-lg btn-block"> 
         </p>
     </form>
     </div>
