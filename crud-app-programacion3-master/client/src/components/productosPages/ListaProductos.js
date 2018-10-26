@@ -18,7 +18,11 @@ class ListaProductos extends Component {
                 <td>{producto.precio}</td>
                 <td>{producto.stock}</td>
                 <td>{producto.descripcion}</td>
-                
+                <td>
+                <Link to={`/productos/${producto._id}/show`} className="">Ver</Link>&nbsp;
+                <Link to={`/productos/${producto._id}/edit`} className="">Editar</Link>&nbsp;
+                <Link to={`/productos/${producto._id}/delete`} className="">Eliminar</Link>
+                </td>
             </tr>
             )
         });
@@ -35,6 +39,7 @@ class ListaProductos extends Component {
                                 <th>Precio</th>
                                 <th>Stock</th>
                                 <th>Descripcion</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +57,7 @@ class ListaProductos extends Component {
         return(
             <div>
                 
-                <h2>Listando Todos</h2>
+                <h2>Listando Productos</h2>
 
                 <p>
                     <Link to="/productos/new" className="btn btn-primary">Nuevo</Link>

@@ -1,23 +1,25 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+
 import {SubmissionError} from 'redux-form';
-import TodoForm from './TodoForm';
-import {fetchTodoById,updateTodo} from '../../actions';
+import ProductoForm from './ProductoForm';
+import {fetchProductoById,updateProducto} from '../../actions';
+
 import {Redirect} from 'react-router'
 
-class EditTodo extends Component {
+class EditarProducto extends Component {
 
     state={redirect:false};
 
     componentDidMount(){
         const {id}=this.props.match.params;
         if(id){
-            this.props.fetchTodoById(id);
+            this.props.fetchProductoById(id);
         }
     }
 
-    submit=(todo)=>{
-        return this.props.updateTodo(todo)
+    submit=(producto)=>{
+        return this.props.updateProducto(producto)
         .then(response=>this.setState({redirect:true}))
         .catch(err=>{
             throw new SubmissionError(this.props.errors)
@@ -27,12 +29,12 @@ class EditTodo extends Component {
     render() {
         return (
             <div>
-                <h2>Edit Todo</h2>
+                <h2>Editar Producto</h2>
                 <div>
                     {this.state.redirect
-                    ? <Redirect to="/todos" />
-                    : <TodoForm 
-                        todo={this.props.todo}
+                    ? <Redirect to="/productos" />
+                    : <ProductoForm 
+                        producto={this.props.producto}
                         onSubmit={this.submit}/>
                     }
                 </div>    
@@ -43,7 +45,7 @@ class EditTodo extends Component {
 }
 
 function mapStateToProps(state){
-    return {todo:state.todos.todo,errors:state.todos.errors};
+    return {producto:state.productos.producto,errors:state.productos.errors};
 }
 
-export default connect(mapStateToProps,{fetchTodoById,updateTodo}) (EditTodo);
+export default connect(mapStateToProps,{fetchProductoById,updateProducto}) (EditarProducto);

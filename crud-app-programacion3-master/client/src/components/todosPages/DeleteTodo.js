@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {SubmissionError} from 'redux-form';
-import TodoForm from './TodoForm';
-import {fetchTodoById,updateTodo} from '../../actions';
+import {fetchTodoById,deleteTodo} from '../../actions';
 import {Redirect} from 'react-router'
+import {SubmissionError} from 'redux-form';
+import FormDelete from './FormDelete';
 
-class EditTodo extends Component {
+class DeleteTodo extends Component {
 
     state={redirect:false};
 
@@ -17,7 +17,7 @@ class EditTodo extends Component {
     }
 
     submit=(todo)=>{
-        return this.props.updateTodo(todo)
+        return this.props.deleteTodo(todo)
         .then(response=>this.setState({redirect:true}))
         .catch(err=>{
             throw new SubmissionError(this.props.errors)
@@ -27,11 +27,11 @@ class EditTodo extends Component {
     render() {
         return (
             <div>
-                <h2>Edit Todo</h2>
+                <h2>Delete Todo</h2>
                 <div>
                     {this.state.redirect
                     ? <Redirect to="/todos" />
-                    : <TodoForm 
+                    : <FormDelete 
                         todo={this.props.todo}
                         onSubmit={this.submit}/>
                     }
@@ -40,10 +40,13 @@ class EditTodo extends Component {
 
         )
     };
+   
+
+ 
 }
 
 function mapStateToProps(state){
     return {todo:state.todos.todo,errors:state.todos.errors};
 }
 
-export default connect(mapStateToProps,{fetchTodoById,updateTodo}) (EditTodo);
+export default connect(mapStateToProps,{fetchTodoById,deleteTodo}) (DeleteTodo);

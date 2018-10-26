@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom';
 
 class ListTodo extends Component {
 
+    
+
     componentDidMount() {
         this.props.fetchTodos();
+       
+        
     }
+
 
     renderTodos() {
         return this.props.listTodos.map(todo => {
@@ -19,7 +24,7 @@ class ListTodo extends Component {
                 <td>
                 <Link to={`/todos/${todo._id}/show`} className="">Ver</Link>&nbsp;
                 <Link to={`/todos/${todo._id}/edit`} className="">Editar</Link>&nbsp;
-                <Link to={`/todos/${todo._id}/delete`} className="">Eliminar</Link>
+                <Link to={`/todos/${todo._id}/delete`} className="" >Eliminar</Link>&nbsp;
                 </td>
             </tr>
             )
@@ -42,6 +47,7 @@ class ListTodo extends Component {
                             <tr>
                                 <th>Hecho</th>
                                 <th>Nombre</th>
+                                <th>Descripción</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>

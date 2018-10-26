@@ -1,4 +1,4 @@
-import {FETCH_TODOS,NEW_TODO,SAVE_TODO,FETCH_TODOS_BY_ID,UPDATE_TODO} from '../actions/types';
+import {FETCH_TODOS,NEW_TODO,SAVE_TODO,FETCH_TODOS_BY_ID,UPDATE_TODO,DELETE_TODO} from '../actions/types';
 
 const TODO_INITIAL_STATE={};
 
@@ -42,6 +42,15 @@ export default function (state = INITIAL_STATE, action) {
           ...state,
           todo:TODO_INITIAL_STATE,
           list:state.list.map(item=>item._id === todo._id ? todo: item)
+        }
+      }
+
+      case DELETE_TODO:{
+        const todo=action.payload.data;
+        return{
+          ...state,
+         todo:TODO_INITIAL_STATE,
+         list:state.list.map(item=>item._id === todo._id ? todo: item)
         }
       }
     default:
