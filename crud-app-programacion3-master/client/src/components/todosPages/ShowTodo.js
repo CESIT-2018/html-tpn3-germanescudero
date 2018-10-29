@@ -19,10 +19,20 @@ class ShowTodo extends Component {
         return (
             <div>
                 <h2>Show Todo</h2>
-               {this.props.todo.name}-
-               {this.props.todo.description}
-               <div>
-               <Link to={`/todos/${this.props.todo._id}/edit`} className="">Editar</Link>&nbsp;
+                <br/>
+                <div className="row">
+                     <div className="col-sm-2"><p className="font-weight-bold text-right">Name:</p></div>
+                     <div className="col-sm-10">{this.props.todo.name}</div>
+                </div>            
+                <div className="row">
+                     <div className="col-sm-2"><p className="font-weight-bold text-right">Description:</p></div>
+                     <div className="col-sm-10">{this.props.todo.description}</div>
+                </div>   
+               
+               <div className="row">
+               <Link className="btn btn-light mr-2" to="/todos">Volver</Link>
+               <Link to={`/todos/${this.props.todo._id}/edit`} className="btn btn-secondary mr-2">Editar</Link>&nbsp;
+               
                </div>
 
             </div>

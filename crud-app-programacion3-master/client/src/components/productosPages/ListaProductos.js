@@ -1,6 +1,6 @@
 import React, {Component} from 'react';//importa las acciones , las conecta y las mapea con el state
 import {connect} from 'react-redux';
-import {fetchProductos} from '../../actions';
+import {fetchProductos,deleteProducto} from '../../actions';
 import { Link } from 'react-router-dom';
 
 class ListaProductos extends Component {
@@ -21,7 +21,8 @@ class ListaProductos extends Component {
                 <td>
                 <Link to={`/productos/${producto._id}/show`} className="">Ver</Link>&nbsp;
                 <Link to={`/productos/${producto._id}/edit`} className="">Editar</Link>&nbsp;
-                <Link to={`/productos/${producto._id}/delete`} className="">Eliminar</Link>
+                <a className="mr-2" href={`/productos`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar este item?'))this.props.deleteProducto(producto._id)}}  >Eliminar</a>
+               
                 </td>
             </tr>
             )
@@ -77,4 +78,4 @@ function mapStateToProps(state) {//conecta a los estados
     };
 }
 
-export default connect(mapStateToProps, {fetchProductos})(ListaProductos);
+export default connect(mapStateToProps, {fetchProductos,deleteProducto})(ListaProductos);

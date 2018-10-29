@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
+import {Link} from 'react-router-dom';
 
 const validate =(values)=>{
     const errors ={name:{}};
@@ -22,23 +23,22 @@ class TodoForm extends Component{
     }
 
     renderField=({input,label,type,meta:{touched,error}})=>(
-        <div>
-            <label>{label}</label>
-            <input {...input} placeholder={label} type={type} style={{marginBottom:'5px'}}/>
-            <div className="red-text" style={{marginBottom:'20px'}}>
-            {touched && error}
-            </div>
+        <div className="form-group">
+            <label forname={input.name}>{label}</label>
+            <input {...input} placeholder={input.label} className="form-control" id={input.name} type={type}/>
         </div>    
     )
 
     render(){
         const{handleSubmit}=this.props;
+       
         return(
             <div>
                 <form onSubmit={handleSubmit}>
                     <Field name="name" type="text" component={this.renderField} label="Name"/>
                     <Field name="description" type="text" component={this.renderField} label="Description"/>
-                    <button type="submit">{this.isUpdated ? "Update":"Create"}</button>
+                    <Link className="btn btn-light mr-2" to="/todos">Cancelar</Link>
+                    <button type="submit" className="btn btn-primary mr-2">{this.isUpdated ? "Update":"Create"}</button>
                 </form>
                 </div>
         )

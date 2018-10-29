@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchTodos} from '../../actions';
+import {fetchTodos,deleteTodo} from '../../actions';
 import { Link } from 'react-router-dom';
 
 class ListTodo extends Component {
@@ -14,6 +14,8 @@ class ListTodo extends Component {
     }
 
 
+
+
     renderTodos() {
         return this.props.listTodos.map(todo => {
             return (
@@ -24,7 +26,7 @@ class ListTodo extends Component {
                 <td>
                 <Link to={`/todos/${todo._id}/show`} className="">Ver</Link>&nbsp;
                 <Link to={`/todos/${todo._id}/edit`} className="">Editar</Link>&nbsp;
-                <Link to={`/todos/${todo._id}/delete`} className="" >Eliminar</Link>&nbsp;
+                <a className="mr-2" href={`/todos`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar este item?'))this.props.deleteTodo(todo._id)}}  >Eliminar</a>
                 </td>
             </tr>
             )
@@ -69,4 +71,4 @@ function mapStateToProps(state) {//conecta a los estados
     };
 }
 
-export default connect(mapStateToProps, {fetchTodos})(ListTodo);
+export default connect(mapStateToProps, {fetchTodos,deleteTodo})(ListTodo);
