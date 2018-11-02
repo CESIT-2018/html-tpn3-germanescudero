@@ -1,24 +1,27 @@
 import React, {Component} from 'react';//importa las acciones , las conecta y las mapea con el state
 import {connect} from 'react-redux';
-import {fetchProductos} from '../../actions';
+import {fetchServicios,deleteServicio} from '../../actions';
 import { Link } from 'react-router-dom';
 
-class ListaProductos extends Component {
+class ListadoServicios extends Component {
 
     componentDidMount(){
-        this.props.fetchProductos();
+        this.props.fetchServicios();
     }
 
-    renderProductos() {
-        return this.props.listaProductos.map(producto => {
+    renderServicios() {
+        return this.props.listaServicios.map(servicio => {
             return (
-            <tr key={producto._id}>
+            <tr key={servicio._id}>
                 
-                <td>{producto.nombre}</td>
-                <td>{producto.precio}</td>
-                <td>{producto.stock}</td>
-                <td>{producto.descripcion}</td>
-                
+                <td>{servicio.nombre}</td>
+                <td>{servicio.descripcion}</td>
+                <td>
+                <Link to={`/servicios/${servicio._id}/show`} className="">Ver</Link>&nbsp;
+                <Link to={`/servicios/${servicio._id}/edit`} className="">Editar</Link>&nbsp;
+                <a className="mr-2" href={`/servicios`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar el item: '+servicio.nombre+' ?'))this.props.deleteServicio(servicio._id)}}  >Eliminar</a>
+               
+                </td>
             </tr>
             )
         });
@@ -32,14 +35,13 @@ class ListaProductos extends Component {
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Stock</th>
                                 <th>Descripcion</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                this.renderProductos()
+                                this.renderServicios()
                             }
                         </tbody>
                     </table>
@@ -52,10 +54,10 @@ class ListaProductos extends Component {
         return(
             <div>
                 
-                <h2>Listando Todos</h2>
+                <h2>Listando Productos</h2>
 
                 <p>
-                    <Link to="/productos/new" className="btn btn-primary">Nuevo</Link>
+                    <Link to="/servicios/new" className="btn btn-primary">Nuevo</Link>
                 </p>
                 
                 <div className="table-responsive">
@@ -68,8 +70,8 @@ class ListaProductos extends Component {
 
 function mapStateToProps(state) {//conecta a los estados
     return {
-        listaProductos: state.productos.lista
+        listaServicios: state.servicios.lista
     };
 }
 
-export default connect(mapStateToProps, {fetchProductos})(ListaProductos);
+export default connect(mapStateToProps, {fetchServicios,deleteServicio})(ListadoServicios);

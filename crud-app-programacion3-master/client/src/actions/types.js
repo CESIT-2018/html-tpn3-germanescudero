@@ -19,3 +19,14 @@ export const FETCH_PRODUCTO_BY_ID_CUMPLIDO="fetch_producto_by_id_cumplido";
 export const FETCH_PRODUCTO_BY_ID_RECHAZADO="fetch_producto_by_id_rechazado";
 export const UPDATE_PRODUCTO="update_producto";
 export const DELETE_PRODUCTO="delete_producto";
+
+export const LISTA_SERVICIOS_PENDIENTE = "lista_servicios_pendiente";
+export const LISTA_SERVICIOS_CUMPLIDO = "lista_servicios_cumplido";
+export const LISTA_SERVICIOS_RECHAZADO = "lista_servicios_rechazado";
+export const NEW_SERVICIO ="new_servicio";
+export const SAVE_SERVICIO="save_servicio";
+export const FETCH_SERVICIO_BY_ID_PENDIENTE="fetch_servicio_by_id_pendiente";
+export const FETCH_SERVICIO_BY_ID_CUMPLIDO="fetch_servicio_by_id_cumplido";
+export const FETCH_SERVICIO_BY_ID_RECHAZADO="fetch_servicio_by_id_rechazado";
+export const UPDATE_SERVICIO="update_servicio";
+export const DELETE_SERVICIO="delete_servicio";

@@ -79,9 +79,10 @@ export default function (state = INITIAL_STATE, action) {
 
       case DELETE_TODO:{
         const id=action.payload.data._id;
+        
         return{
           ...state,
-        
+          
          list:state.list.filter(item=>item._id !== id)
         }
       }

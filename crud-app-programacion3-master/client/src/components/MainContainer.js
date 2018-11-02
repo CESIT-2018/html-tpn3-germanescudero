@@ -13,7 +13,10 @@ import NuevoProducto from './productosPages/NuevoProducto';
 import VerProducto from './productosPages/VerProducto';
 import EditarProducto from './productosPages/EditarProducto';
 
-
+import ListadoServicios from './serviciosPages/ListadoServicios';
+import NuevoServicio from './serviciosPages/NuevoServicio';
+import VerServicios from './serviciosPages/VerServicios';
+import EditarServicios from './serviciosPages/EditarServicios';
 
 class MainContainer extends Component {
 
@@ -34,7 +37,12 @@ class MainContainer extends Component {
                         <Route exact path="/productos/new" component={NuevoProducto}/>
                         <Route exact path="/productos/:id/show" component={VerProducto}/>
                         <Route exact path="/productos/:id/edit" component={EditarProducto}/>
-                        
+
+                        <Route exact path="/servicios" component={ListadoServicios}/>
+                        <Route exact path="/servicios/new" component={NuevoServicio}/>
+                        <Route exact path="/servicios/:id/show" component={VerServicios}/>
+                        <Route exact path="/servicios/:id/edit" component={EditarServicios}/>
+
                     </main>
                 </div>
             </div>

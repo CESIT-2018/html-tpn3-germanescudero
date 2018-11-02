@@ -13,11 +13,11 @@ const validate =(values)=>{
     return errors;
 }
 
-class ProductoForm extends Component{
+class ServiciosForm extends Component{
     componentWillReceiveProps=(nextProps)=>{
-        const {producto}=nextProps;
-        if(producto._id !==this.props.producto._id){
-            this.props.initialize(producto);
+        const {servicio}=nextProps;
+        if(servicio._id !==this.props.servicio._id){
+            this.props.initialize(servicio);
             this.isUpdated=true;
         }
     }
@@ -37,9 +37,8 @@ class ProductoForm extends Component{
                 <form onSubmit={handleSubmit}>
                     <Field name="nombre" type="text" component={this.renderField} label="Nombre"/>
                     <Field name="descripcion" type="text" component={this.renderField} label="Descripción"/>
-                    <Field name="precio" type="text" component={this.renderField} label="Precio"/>
-                    <Field name="stock" type="text" component={this.renderField} label="stock"/>
-                    <Link className="btn btn-light mr-2" to="/productos">Cancelar</Link>
+                    <Field name="precioPorHora" type="text" component={this.renderField} label="Precio/Hora"/>
+                    <Link className="btn btn-light mr-2" to="/servicios">Cancelar</Link>
                     <button type="submit" className="btn btn-primary mr-2">{this.isUpdated ? "Update":"Create"}</button>
                 </form>
                 </div>
@@ -47,4 +46,4 @@ class ProductoForm extends Component{
     }
 }
 
-export default reduxForm({form:'producto'},validate)(ProductoForm);
+export default reduxForm({form:'servicio'},validate)(ServiciosForm);
