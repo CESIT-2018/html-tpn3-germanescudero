@@ -3,15 +3,23 @@ import {reduxForm, Field} from 'redux-form';
 import {Link} from 'react-router-dom';
 
 const validate =(values)=>{
-    const errors ={name:{}};
+    const errors ={};
 
-    if(!values.name){
-        errors.name={
-            message:'You need to provide Name'
-        }
+    if(!values.name ){
+        errors.name='Nombre Requerido';
+    }else if(values.name && values.name.length < 5){
+        errors.name='debe contener al menos 5 caracteres'
+    } else if(/^[a-zA-Z][a-zA-Z]*/.test(values.name)==false){
+        errors.name=' Debes ingresar letras';
     }
+
+    if(!values.description){
+        errors.description='Descripcion Requerida'
+    }
+
     return errors;
 }
+
 
 class TodoForm extends Component{
     componentWillReceiveProps=(nextProps)=>{
@@ -26,6 +34,9 @@ class TodoForm extends Component{
         <div className="form-group">
             <label forname={input.name}>{label}</label>
             <input {...input} placeholder={input.label} className="form-control" id={input.name} type={type}/>
+            <div className="text-danger" style={{marginBottom:'20px'}}>
+                {touched && error}
+            </div>
         </div>    
     )
 
@@ -45,4 +56,4 @@ class TodoForm extends Component{
     }
 }
 
-export default reduxForm({form:'todo'},validate)(TodoForm);
+export default reduxForm({form:'todo',validate})(TodoForm);

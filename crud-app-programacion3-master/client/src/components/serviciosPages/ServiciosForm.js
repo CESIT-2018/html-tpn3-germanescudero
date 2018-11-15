@@ -2,17 +2,27 @@ import React,{Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {Link} from 'react-router-dom';
 
-const validate =(values)=>{
-    const errors ={name:{}};
+const validate=(values)=>{
+    const errors ={};
 
-    if(!values.name){
-        errors.name={
-            message:'You need to provide Name'
-        }
+    if(!values.nombre ){
+        errors.nombre='Nombre Requerido';
+    }else if(/^[a-zA-Z][a-zA-Z]*/.test(values.nombre)==false){
+        errors.nombre=' Debes ingresar letras';
     }
+
+    if(!values.descripcion){
+        errors.descripcion='Descripcion Requerida'
+    }
+
+    if(!values.precioPorHora){
+        errors.precioPorHora='Precio Requerido'
+    }else if(isNaN(values.precioPorHora)){
+        errors.precioPorHora=' Debes ingresar números';
+    }
+
     return errors;
 }
-
 class ServiciosForm extends Component{
     componentWillReceiveProps=(nextProps)=>{
         const {servicio}=nextProps;
@@ -26,6 +36,9 @@ class ServiciosForm extends Component{
         <div className="form-group">
             <label forname={input.name}>{label}</label>
             <input {...input} placeholder={input.label} className="form-control" id={input.name} type={type}/>
+            <div className="text-danger" style={{marginBottom:'20px'}}>
+                {touched && error}
+            </div>
         </div>    
     )
 
@@ -46,4 +59,4 @@ class ServiciosForm extends Component{
     }
 }
 
-export default reduxForm({form:'servicio'},validate)(ServiciosForm);
+export default reduxForm({form:'servicio',validate})(ServiciosForm);
