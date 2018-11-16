@@ -24,9 +24,9 @@ class ListTodo extends Component {
                 <td>{todo.name}</td>
                 <td>{todo.description}</td>
                 <td>
-                <Link to={`/todos/${todo._id}/show`} className="">Ver</Link>&nbsp;
-                <Link to={`/todos/${todo._id}/edit`} className="">Editar</Link>&nbsp;
-                <a className="mr-2" href={`/todos`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar este item: '+todo.name+' ?'))this.props.deleteTodo(todo._id)}}  >Eliminar</a>
+                <Link to={`/todos/${todo._id}/show`} className=""><i className="material-icons">visibility</i></Link>&nbsp;
+                <Link to={`/todos/${todo._id}/edit`} className="" ><i className="material-icons" >edit</i></Link>&nbsp;
+                <a className="mr-2" href={`/todos`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar este item: '+todo.name+' ?'))this.props.deleteTodo(todo._id)}}  ><i className="material-icons">delete</i></a>
                 </td>
             </tr>
             )

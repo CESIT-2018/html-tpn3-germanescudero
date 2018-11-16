@@ -19,9 +19,9 @@ class ListaProductos extends Component {
                 <td>{producto.stock}</td>
                 <td>{producto.descripcion}</td>
                 <td>
-                <Link to={`/productos/${producto._id}/show`} className="">Ver</Link>&nbsp;
-                <Link to={`/productos/${producto._id}/edit`} className="">Editar</Link>&nbsp;
-                <a className="mr-2" href={`/productos`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar este item: '+producto.nombre+ '?'))this.props.deleteProducto(producto._id)}}  >Eliminar</a>
+                <Link to={`/productos/${producto._id}/show`} className=""><i className="material-icons">visibility</i></Link>&nbsp;
+                <Link to={`/productos/${producto._id}/edit`} className=""><i className="material-icons" >edit</i></Link>&nbsp;
+                <a className="mr-2" href={`/productos`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar este item: '+producto.nombre+ '?'))this.props.deleteProducto(producto._id)}}  ><i className="material-icons">delete</i></a>
                
                 </td>
             </tr>

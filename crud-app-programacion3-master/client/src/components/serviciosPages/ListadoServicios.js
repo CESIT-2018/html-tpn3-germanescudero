@@ -17,9 +17,9 @@ class ListadoServicios extends Component {
                 <td>{servicio.nombre}</td>
                 <td>{servicio.descripcion}</td>
                 <td>
-                <Link to={`/servicios/${servicio._id}/show`} className="">Ver</Link>&nbsp;
-                <Link to={`/servicios/${servicio._id}/edit`} className="">Editar</Link>&nbsp;
-                <a className="mr-2" href={`/servicios`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar el item: '+servicio.nombre+' ?'))this.props.deleteServicio(servicio._id)}}  >Eliminar</a>
+                <Link to={`/servicios/${servicio._id}/show`} className=""><i className="material-icons">visibility</i></Link>&nbsp;
+                <Link to={`/servicios/${servicio._id}/edit`} className=""><i className="material-icons" >edit</i></Link>&nbsp;
+                <a className="mr-2" href={`/servicios`} onClick={()=>{if(window.confirm('¿Estás seguro de eliminar el item: '+servicio.nombre+' ?'))this.props.deleteServicio(servicio._id)}}  ><i className="material-icons">delete</i></a>
                
                 </td>
             </tr>

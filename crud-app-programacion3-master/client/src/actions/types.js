@@ -30,3 +30,6 @@ export const FETCH_SERVICIO_BY_ID_CUMPLIDO="fetch_servicio_by_id_cumplido";
 export const FETCH_SERVICIO_BY_ID_RECHAZADO="fetch_servicio_by_id_rechazado";
 export const UPDATE_SERVICIO="update_servicio";
 export const DELETE_SERVICIO="delete_servicio";
+
+export const GET_ERRORS = 'GET_ERRORS';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
