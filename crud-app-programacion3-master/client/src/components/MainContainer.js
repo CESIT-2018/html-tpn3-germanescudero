@@ -18,11 +18,13 @@ import NuevoServicio from './serviciosPages/NuevoServicio';
 import VerServicios from './serviciosPages/VerServicios';
 import EditarServicios from './serviciosPages/EditarServicios';
 
+import NuevoContato from './contactoPages/NuevoContacto';
+
 class MainContainer extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
+            
                 <div className="row">
                     <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
                         <Route exact path="/" component={Welcomes}/>
@@ -43,9 +45,11 @@ class MainContainer extends Component {
                         <Route exact path="/servicios/:id/show" component={VerServicios}/>
                         <Route exact path="/servicios/:id/edit" component={EditarServicios}/>
 
+                        <Route exact path="/contactos" component={NuevoContato}/>
+
                     </main>
                 </div>
-            </div>
+           
         );
     }
 }

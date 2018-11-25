@@ -9,7 +9,7 @@ const validate =(values)=>{
         errors.name='Nombre Requerido';
     }else if(values.name && values.name.length < 5){
         errors.name='debe contener al menos 5 caracteres'
-    } else if(/^[a-zA-Z][a-zA-Z]*/.test(values.name)==false){
+    } else if(/^[a-zA-Z][a-zA-Z]*/.test(values.name)===false){
         errors.name=' Debes ingresar letras';
     }
 

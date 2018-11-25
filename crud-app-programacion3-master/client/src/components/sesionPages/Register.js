@@ -60,6 +60,8 @@ class Register extends Component {
         <div className="container" style={{ marginTop: '50px', width: '700px'}}>
             <h2 style={{marginBottom: '40px'}}>Registration</h2>
             <form onSubmit={ this.handleSubmit }>
+
+            
                 <div className="form-group">
                     <input
                     type="text"
@@ -73,6 +75,7 @@ class Register extends Component {
                     />
                     {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                 </div>
+
                 <div className="form-group">
                     <input
                     type="email"
@@ -86,6 +89,8 @@ class Register extends Component {
                     />
                     {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                 </div>
+
+
                 <div className="form-group">
                     <input
                     type="password"
@@ -99,6 +104,8 @@ class Register extends Component {
                     />
                     {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 </div>
+
+
                 <div className="form-group">
                     <input
                     type="password"
@@ -112,6 +119,8 @@ class Register extends Component {
                     />
                     {errors.password_confirm && (<div className="invalid-feedback">{errors.password_confirm}</div>)}
                 </div>
+
+
                 <div className="form-group">
                     <button type="submit" className="btn btn-primary">
                         Register User

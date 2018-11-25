@@ -33,3 +33,14 @@ export const DELETE_SERVICIO="delete_servicio";
 
 export const GET_ERRORS = 'GET_ERRORS';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+
+export const NEW_CONTACTO="new_contacto";
+export const SAVE_CONTACTO="save_contacto";
+
+export const LISTADO_NACIONALIDAD="listado_nacionalidad";
+
+export const FETCH_CALIFICACIONES_PENDING = "fetch_calificaciones_pending";
+export const FETCH_CALIFICACIONES_FULFILLED = "fetch_calificaciones_fulfilled";
+export const FETCH_CALIFICACIONES_REJECTED = "fetch_calificaciones_rejected";
+export const NEW_CALIFICACION ="new_calificacion";
+export const SAVE_CALIFICACION="save_calificacion";

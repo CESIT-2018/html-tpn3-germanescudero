@@ -5,6 +5,9 @@ import reducerProductos from './ReducerProductos';
 import errorReducer from './errorReducer';
 import authReducer from './authReducer';
 import reducerServicios from './ReducerServicios';
+import reducerContactos from './ReducerContacto';
+import reducerNacionalidad from './ReducerNacionalidad';
+import reducerCalificacion from './ReducerCalificacion';
 
 export default combineReducers({
   form: reduxForm,
@@ -12,5 +15,8 @@ export default combineReducers({
   productos:reducerProductos,
   servicios:reducerServicios,
   errors: errorReducer,
-  auth: authReducer
+  auth: authReducer,
+  contactos:reducerContactos,
+  nacionalidades:reducerNacionalidad,
+  calificaciones:reducerCalificacion
 });

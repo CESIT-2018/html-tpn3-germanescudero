@@ -7,7 +7,7 @@ const validate=(values)=>{
 
     if(!values.nombre ){
         errors.nombre='Nombre Requerido';
-    }else if(/^[a-zA-Z][a-zA-Z]*/.test(values.nombre)==false){
+    }else if(/^[a-zA-Z][a-zA-Z]*/.test(values.nombre)===false){
         errors.nombre=' Debes ingresar letras';
     }
 
