@@ -28,6 +28,7 @@ module.exports = app => {
         try {
             const id = req.params.id;
             const todo = await Todo.findById(id);
+            
 
             if (todo) {
                 res.send(todo);

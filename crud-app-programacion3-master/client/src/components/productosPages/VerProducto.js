@@ -17,7 +17,7 @@ class VerProducto extends Component {
     renderFilas() {
         return this.props.listaCalificaciones.map(calificacion => {
             return (
-                <tr key={this.props.producto._id}>
+                <tr key={calificacion.producto._id!==this.props.producto._id}>
                     <th>
                         {calificacion.calificacion}
                     </th>
@@ -71,8 +71,8 @@ class VerProducto extends Component {
                         <table>
                             <thead>
                                 <tr>
-                                    <th></th>
-                                    <th></th>
+                                    <th>Puntajes</th>
+                                    <th>Comentarios</th>
                                 </tr>
                             </thead>
                             <tbody>
