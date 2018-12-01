@@ -12,7 +12,7 @@ module.exports = app => {
 
    app.get("/api/contactos", function(req, res) {
         Contacto.find({}, function(err, contactos) {
-            Nacinalidad.populate(contactos, {path: "nacionalidad"},function(err, contactos){
+            Nacinalidad.populate(contactos, {path: "nacionalidades"},function(err, contactos){
                 res.status(200).send(contactos);
             }); 
         });

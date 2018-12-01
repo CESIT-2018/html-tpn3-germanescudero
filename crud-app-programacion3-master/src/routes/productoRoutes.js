@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Producto = mongoose.model('productos');
-const Calificacion = mongoose.model('calificaciones');
+//const Calificacion = mongoose.model('calificaciones');
 
 //const ObjectId=require('mongodb').ObjectID;
 
@@ -39,7 +39,7 @@ module.exports = app => {
 
     app.post("/api/productos", async (req, res) => {
 
-        const {nombre, precio, stock, descripcion, calificacion } = req.body;
+        const {nombre, precio, stock, descripcion, calificacion} = req.body;
 
         const producto = new Producto({
          
@@ -48,6 +48,7 @@ module.exports = app => {
             stock,
             descripcion,
             calificacion,
+            
             createdAt: new Date(),
             updatedAt: new Date()
         });

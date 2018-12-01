@@ -1,4 +1,4 @@
-import {FETCH_CALIFICACIONES_PENDING,FETCH_CALIFICACIONES_FULFILLED,FETCH_CALIFICACIONES_REJECTED,NEW_CALIFICACION,SAVE_CALIFICACION} from '../actions/types';
+import {FETCH_CALIFICACIONES_PENDING,FETCH_CALIFICACIONES_FULFILLED,FETCH_CALIFICACIONES_REJECTED,NEW_CALIFICACION,SAVE_CALIFICACION,FETCH_CALIFICACION_BY_ID} from '../actions/types';
 const CALIFICACION_INITIAL_STATE={};
 
 const INITIAL_STATE = {
@@ -42,6 +42,17 @@ export default function (state = INITIAL_STATE, action) {
           
         }
       }
+
+      case FETCH_CALIFICACION_BY_ID:{
+        return{
+          ...state,
+          list:action.payload.data,
+          loading:false
+        }
+      }
+
+
+
 
     default:
       return state;

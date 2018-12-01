@@ -46,15 +46,7 @@ class LeftMenu extends Component {
                                 </li>
                             </ul>
 
-                            <p>
-                            <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                                <span>Ubicación</span>
-                                <a className="d-flex align-items-center text-muted" href="">
-                                    <span data-feather="plus-circle"></span>
-                                </a>
-                            </h6>
-                            </p>
-                            
+                           <hr />
 
                             <ul className="nav flex-column">
 
@@ -64,18 +56,7 @@ class LeftMenu extends Component {
 
                             </ul>
 
-                            <ul class="nav flex-column mb-3">
-
-                                <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"><span>Redes Sociales</span></h6>
-                                <li className="nav-item text-nowrap">
-                                    <a href="https://facebook.com/" className="fa fa-facebook-square"></a>
-                                    <a href="https://twitter.com/" className="fa fa-twitter-square"></a>
-                                    <a href="https://plus.google.com/" className="fa fa-google-plus-square"></a>
-                                    <a href="https://linkedin.com/" className="fa fa-linkedin-square"></a>
-                                    
-
-                                </li>
-                            </ul>
+                            
                         </div>
                     </nav>
                 </div>

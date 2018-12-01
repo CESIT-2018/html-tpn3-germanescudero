@@ -44,3 +44,4 @@ export const FETCH_CALIFICACIONES_FULFILLED = "fetch_calificaciones_fulfilled";
 export const FETCH_CALIFICACIONES_REJECTED = "fetch_calificaciones_rejected";
 export const NEW_CALIFICACION ="new_calificacion";
 export const SAVE_CALIFICACION="save_calificacion";
+export const FETCH_CALIFICACION_BY_ID="fetch_calificacion_by_id";

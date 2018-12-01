@@ -27,7 +27,7 @@ class NuevoProducto extends Component {
                 <h2>Nuevo Producto</h2>
                 {this.state.redirect 
                 ? <Redirect to="/productos"/>
-                : <ProductoForm producto={this.props.producto} onSubmit={this.submit}/>
+                : <ProductoForm producto={this.props.producto} onSubmit={this.submit} />
             }
             </div>
         )

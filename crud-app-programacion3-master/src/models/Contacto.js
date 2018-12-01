@@ -19,11 +19,10 @@ const contactoEsquema = new Schema({
       type:String,
       required:true
   },
-    fechaNacimiento:{
-      type:Date,
-      required:true
+    
+    nacionalidad:{type:mongoose.Schema.Types.ObjectId, ref:'nacionalidades'
   },
-    nacionalidad:{type:mongoose.Schema.Types.ObjectId, ref:'Nacionalidad'},
+
     comentario:{
       type:String,
       required:true

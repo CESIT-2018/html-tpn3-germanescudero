@@ -12,8 +12,8 @@ module.exports = app => {
              }); 
          });
      });
-
-app.get("/api/calificaciones/:idProducto",function(req,res){
+ 
+app.get("/api/calificaciones/productos/:idProducto",function(req,res){
    
         const idProducto=req.params.idProducto;
         

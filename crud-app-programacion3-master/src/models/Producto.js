@@ -8,6 +8,7 @@ const productoEsquema = new Schema({
   precio:Number,
   stock : Number,
   descripcion: String,
+ 
   createdAt: Date,
   updatedAt: Date,
     

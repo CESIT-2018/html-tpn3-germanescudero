@@ -59,11 +59,12 @@ class ProductoForm extends Component{
        
         return(
             <div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} >
                     <Field name="nombre" type="text" component={this.renderField} label="Nombre"/>
                     <Field name="descripcion" type="text" component={this.renderField} label="Descripción"/>
                     <Field name="precio" type="text" component={this.renderField} label="Precio"/>
                     <Field name="stock" type="text" component={this.renderField} label="Stock"/>
+                
                     <Link className="btn btn-light mr-2" to="/productos">Cancelar</Link>
                     <button type="submit" className="btn btn-primary mr-2">{this.isUpdated ? "Update":"Create"}</button>
                 </form>
