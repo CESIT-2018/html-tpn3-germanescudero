@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProductoById, fetchCalificacionById, saveCalificacion, newCalificacion } from '../../actions';
+import { fetchProductoById, fetchCalificacionById, saveCalificacion, newCalificacion,saveCarrito,newCarrito} from '../../actions';
 import { Link } from 'react-router-dom';
+import { logoutUser } from '../../actions/authentication';
 import './estrellas.css';
 
 class VerProducto extends Component {
@@ -13,11 +14,16 @@ class VerProducto extends Component {
             calificacion: '',
             comentario: '',
             productos: '',
-
-            errors: {}
+            usuario:'',
+            cantidad:'',
+            subtotal:'',
+            errors: {},
+            error:{}
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.agregarACarrito=this.agregarACarrito.bind(this);
+       // this.handleInputChangeCarrito=this.handleInputChangeCarrito.bind(this);
     }
 
     handleInputChange(e) {
@@ -25,8 +31,13 @@ class VerProducto extends Component {
             [e.target.name]: e.target.value
         })
     }
+   /* handleInputChangeCarrito(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }*/
 
-    handleSubmit(e) {
+    agregarACarrito(e) {
         e.preventDefault();
         const calificacion = {
             nombres: this.state.nombres,
@@ -39,6 +50,20 @@ class VerProducto extends Component {
         this.setState({ nombres: "", email: "", calificacion: "", comentario: "" })
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        //const { user} = this.props.auth;
+        const carrito={
+            usuario:this.props.auth.name,
+            productos:this.props.producto,
+            cantidad:this.state.cantidad,
+            subtotal:this.state.subtotal
+        }
+        this.props.saveCarrito(carrito,this.props.history);
+     
+        
+    }
+
     componentDidMount() {
         const { id } = this.props.match.params;
         if (id) {
@@ -46,6 +71,7 @@ class VerProducto extends Component {
 
         }
         this.props.fetchCalificacionById(id);
+        this.props.newCarrito();
         this.props.newCalificacion();
 
     }
@@ -54,42 +80,77 @@ class VerProducto extends Component {
         return (
             <div>
                 <div>
-                    <h3>Ver Producto</h3>
+                
+                    <h3 className="d-flex justify-content-between align-items-center mb-3">Ver Producto</h3>
                     <br />
+<div className="row">
+    <div className="col-md-6 order-md-2 mb-3">
+          
+          <ul className="list-group mb-3">
+          
+            <li className="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 className="text-success"><i className="fa fa-credit-card" aria-hidden="true"></i> Pagá en 6 cuotas sin interés</h6>
+                <small className="text-muted">Brief description</small>
+              </div>
+              
+            </li>
+            <li className="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 className="text-success"><i className="fa fa-truck" aria-hidden="true"></i> Envío gratis a todo el país</h6>
+                <small className="text-muted">Brief description</small>
+              </div>
+              
+            </li>
+            <li className="list-group-item d-flex justify-content-between bg-light">
+              <div className="text-success">
+                <h6 className="my-0"><i className="fa fa-undo-alt" aria-hidden="true"></i> Devolución gratis</h6>
+                <small className="text-muted">Tenés 10 dias antes de lo recibís</small>
+              </div>
+             
+            </li>
+          </ul>
 
-                    <div className="row">
-                        <div className="col-sm-2"><p className="font-weight-bold text-right">Nombre:</p></div>
-                        <div className="col-sm-10">{this.props.producto.nombre}</div>
+          <form className="card p-2" onSubmit={this.handleSubmit}>
+            <div className="input-group">
+              <input type="text" onChange={this.handleInputChange} value={this.state.cantidad} name="cantidad" className="form-control" placeholder="Ingrese Cantidad"/>
+              <input type="text" onChange={this.handleInputChange} value={this.state.subtotal=this.state.cantidad*this.props.producto.precio} name="subtotal" className="form-control" placeholder="total $"/>
+              <div className="input-group-append">
+              <button type="submit" className="btn btn-success"  >Add to Shopping Cart</button> 
+              </div>
+            </div>
+          </form>
+        </div>
+        
+                        <div className="col-md-6 order-md-1">
+                            <form className="needs-validation" >
+                                <div className="row">
+                                    <div className="col-sm-2"><p className="font-weight-bold text-right">Nombre:</p></div>
+                                    <div className="col-sm-10">{this.props.producto.nombre}</div>
+
+
+                                    <div className="col-sm-2"><p className="font-weight-bold text-right">Descripción:</p></div>
+                                    <div className="col-sm-10">{this.props.producto.descripcion}</div>
+
+                                    <div className="col-sm-2"><p className="font-weight-bold text-right">Precio:</p></div>
+                                    <div className="col-sm-10">{this.props.producto.precio}</div>
+
+                                    <div className="col-sm-2"><p className="font-weight-bold text-right">Stock:</p></div>
+                                    <div className="col-sm-10">{this.props.producto.stock}</div>
+
+                                </div>
+                                <Link className="btn btn-light mr-3" to="/productos">Volver</Link>
+                                <Link to={`/productos/${this.props.producto._id}/edit`} className="btn btn-primary mr-3">Editar</Link>&nbsp;
+                            </form>
+                        </div>
+
                     </div>
-                    <div className="row">
-                        <div className="col-sm-2"><p className="font-weight-bold text-right">Descripción:</p></div>
-                        <div className="col-sm-10">{this.props.producto.descripcion}</div>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-2"><p className="font-weight-bold text-right">Precio:</p></div>
-                        <div className="col-sm-10">{this.props.producto.precio}</div>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-2"><p className="font-weight-bold text-right">Stock:</p></div>
-                        <div className="col-sm-10">{this.props.producto.stock}</div>
 
-                    </div>
-
-
-                    <Link className="btn btn-light mr-2" to="/productos">Volver</Link>
-                    <Link to={`/productos/${this.props.producto._id}/edit`} className="btn btn-secondary mr-2">Editar</Link>&nbsp;
-                   </div>
-
+                </div>
+                   
                 <hr />
                 <div className="my-3 p-3 bg-white rounded box-shadow">
-
-
-
-
-
-
-
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.agregarACarrito}>
                         <div className="row">
                             <div className="col-md-4 mb-3">
 
@@ -194,9 +255,11 @@ function mapStateToProps(state) {//conecta a los estados
     return {
         producto: state.productos.producto,
         calificacion: state.calificaciones.calificacion, errors: state.calificaciones.errors,
-        calificaciones: state.calificaciones.list
+        calificaciones: state.calificaciones.list,
+        carrito: state.carritos.carrito, error: state.carritos.errors,
+        auth: state.auth.user
     };
 }
 
-export default connect(mapStateToProps, { fetchProductoById, fetchCalificacionById, saveCalificacion, newCalificacion })(VerProducto);
+export default connect(mapStateToProps, { logoutUser,fetchProductoById, fetchCalificacionById, saveCalificacion, newCalificacion,newCarrito,saveCarrito})(VerProducto);
 

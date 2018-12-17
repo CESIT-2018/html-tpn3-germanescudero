@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './iconosSociales.css';
 
+import {fetchCarritoByUsuario}from '../actions';
+
+import { connect } from 'react-redux';
+
 class LeftMenu extends Component {
-
-
+    
 
     render() {
         return (
@@ -17,46 +20,47 @@ class LeftMenu extends Component {
                                 <li className="nav-item">
 
                                     <NavLink exact={true} className="nav-link" to={'/'}>
-
-                                        <i className="material-icons" >  desktop_mac</i> Inicio
-                            </NavLink>
+                                    <h6>   
+                                        <i className="fa fa-desktop" aria-hidden="true"></i> Inicio</h6> 
+                                    </NavLink>
                                 </li>
 
                                 <li className="nav-item">
                                     <NavLink exact={true} className="nav-link" to={'/todos'}>
-                                        <i className="material-icons" > cloud_done</i> Todos
-                            </NavLink>
+                                    <h6> <i className="fa fa-cloud-upload-alt" aria-hidden="true"></i> Todos</h6> 
+                                    </NavLink>
                                 </li>
 
                                 <li className="nav-item">
                                     <NavLink exact={true} className="nav-link" to={'/productos'}>
-                                        <i className="material-icons" >local_grocery_store</i>Productos
-                            </NavLink>
+                                    <h6><i className="fa fa-box-open" aria-hidden="true"></i> Productos</h6> 
+                                    </NavLink>
                                 </li>
 
                                 <li className="nav-item">
                                     <NavLink exact={true} className="nav-link" to={'/servicios'}>
-                                       <i className="material-icons" >supervisor_account</i>Servicios
-                            </NavLink>
+                                    <h6><i className="fa fa-diagnoses" aria-hidden="true"></i> Servicios</h6>
+                                    </NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink exact={true} className="nav-link" to={'/contactos'}>
-                                        <i className="material-icons" >contact_mail</i> Contacto
-                            </NavLink>
+                                    <h6><i className="fa fa-file-signature" aria-hidden="true"></i> Contacto</h6>
+                                    </NavLink>
                                 </li>
+                                <li className="nav-item">
+                                     <NavLink exact={true} className="nav-link" to={`/shoppingCart/${this.props.auth.name}`}>
+                                   <h6> <i className="fa fa-shopping-cart" aria-hidden="true"></i>  
+                                      Shopping Cart</h6> 
+                                     
+                                     </NavLink>
+                                </li>
+                                
                             </ul>
 
-                           <hr />
-
-                            <ul className="nav flex-column">
-
-                                <li className="nav-item"><NavLink exact={true} className="nav-link" to={'/blog'}> <i className="material-icons" >perm_media</i> Blog</NavLink> </li>
-                                <li className="nav-item"><NavLink exact={true} className="nav-link" to={'/about'}><i className="material-icons" >domain</i> About</NavLink></li>
-                                <li className="nav-item"><NavLink exact={true} className="nav-link" to={'/providers'}><i className="material-icons" >build</i> Providers</NavLink></li>
-
-                            </ul>
-
-                            
+                          
+                                    
+                                  
+                                    
                         </div>
                     </nav>
                 </div>
@@ -65,4 +69,11 @@ class LeftMenu extends Component {
     }
 }
 
-export default LeftMenu;
+function mapStateToProps(state) {//conecta a los estados
+    return {
+        auth: state.auth.user,
+        carritos: state.carritos.list
+    };
+}
+
+export default connect(mapStateToProps, { fetchCarritoByUsuario})(LeftMenu);

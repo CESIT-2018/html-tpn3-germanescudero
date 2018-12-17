@@ -8,6 +8,8 @@ import reducerServicios from './ReducerServicios';
 import reducerContactos from './ReducerContacto';
 import reducerNacionalidad from './ReducerNacionalidad';
 import reducerCalificacion from './ReducerCalificacion';
+import reducerCarrito from './ReducerCarrito';
+import reducerPedido from './ReducerPedido';
 
 export default combineReducers({
   form: reduxForm,
@@ -18,5 +20,7 @@ export default combineReducers({
   auth: authReducer,
   contactos:reducerContactos,
   nacionalidades:reducerNacionalidad,
-  calificaciones:reducerCalificacion
+  calificaciones:reducerCalificacion,
+  carritos:reducerCarrito,
+  pedidos:reducerPedido
 });

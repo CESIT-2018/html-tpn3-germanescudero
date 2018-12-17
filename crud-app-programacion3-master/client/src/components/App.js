@@ -25,7 +25,7 @@ class App extends Component {
                    
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/login" component={Login} />
-                  
+                 
                     <LeftMenu/>
                     <MainContainer />
                     

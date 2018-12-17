@@ -12,11 +12,6 @@ module.exports = app => {
         res.send(productos);
     });//con este metodo, obtenemos todos los productos*/
 
-   
-
-
-    
-
     app.get("/api/productos/:id", async (req, res) => {
 
         try {

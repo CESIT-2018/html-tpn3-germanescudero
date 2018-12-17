@@ -45,3 +45,27 @@ export const FETCH_CALIFICACIONES_REJECTED = "fetch_calificaciones_rejected";
 export const NEW_CALIFICACION ="new_calificacion";
 export const SAVE_CALIFICACION="save_calificacion";
 export const FETCH_CALIFICACION_BY_ID="fetch_calificacion_by_id";
+
+export const FETCH_CARRITO_PENDING = "fetch_carrito_pending";
+export const FETCH_CARRITO_FULFILLED = "fetch_carrito_fulfilled";
+export const FETCH_CARRITO_REJECTED = "fetch_carrito_rejected";
+export const NEW_CARRITO ="new_carrito";
+export const SAVE_CARRITO="save_carrito";
+export const FETCH_CARRITO_BY_ID_PENDING="fetch_carrito_by_id_pending";
+export const FETCH_CARRITO_BY_ID_FULFILLED="fetch_carrito_by_id_fulfilled";
+export const FETCH_CARRITO_BY_ID_REJECTED="fetch_carrito_by_id_rejected";
+export const UPDATE_CARRITO="update_carrito";
+export const DELETE_CARRITO="delete_carrito";
+
+export const FETCH_PEDIDO_PENDING = "fetch_pedido_pending";
+export const FETCH_PEDIDO_FULFILLED = "fetch_pedido_fulfilled";
+export const FETCH_PEDIDO_REJECTED = "fetch_pedido_rejected";
+export const NEW_PEDIDO ="new_pedido";
+export const SAVE_PEDIDO="save_pedido";
+export const FETCH_PEDIDO_BY_ID_PENDING="fetch_pedido_by_id_pending";
+export const FETCH_PEDIDO_BY_ID_FULFILLED="fetch_pedido_by_id_fulfilled";
+export const FETCH_PEDIDO_BY_ID_REJECTED="fetch_pedido_by_id_rejected";
+export const FETCH_CARRITO_BY_USUARIO="fetch_carrito_by_usuario";
+export const UPDATE_PEDIDO="update_pedido";
+export const DELETE_PEDIDO="delete_pedido";
+
